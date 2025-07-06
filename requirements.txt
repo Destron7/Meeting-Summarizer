@@ -1,0 +1,12 @@
+transformers
+torch
+torchvision
+torchaudio  
+numpy
+SpeechRecognition
+gradio
+huggingface_hub
+IPython
+langchain
+langchain-community
+git+https://github.com/openai/whisper.git
