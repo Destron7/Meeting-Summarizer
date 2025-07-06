@@ -1,27 +1,29 @@
-# 🤖 Meeting Summarizer with LLaMA & LangChain
+# 🤖 Meeting Summarizer with LLaMA, Whisper & LangChain
 
-A modular, GPU-ready LLM-powered tool that summarizes long meeting transcripts into clear, structured key points using the LLaMA 3.2 1B-Instruct model. Built with Hugging Face Transformers, LangChain, and Python.
+A modular, GPU-ready LLM-powered tool that transcribes and summarizes meeting audio files into structured key points using Whisper and LLaMA 3.2 1B-Instruct. Built with Hugging Face Transformers, LangChain, and Gradio for a simple user interface.
 
 ---
 
 ## 🔧 Features
 
+- 🎙️ Whisper-powered audio-to-text transcription from MP3 files
 - 🧠 LLaMA-based summarization using Hugging Face Transformers
 - 📑 Structured output with custom prompt template
 - 🔗 Integrated with LangChain Expression Language (LCEL)
 - ⚡ GPU-compatible with RTX 3050 Ti or any CUDA GPU
-- 🔁 Easy integration into other Python scripts or CLI
-- 📄 Accepts real meeting transcripts as input
+- 💬 Gradio web interface for easy user interaction
+- 📄 Accepts real meeting audio and text transcripts as input
 
 ---
 
 ## 🏗️ Project Flow
 
-1. Load LLaMA 3.2 model + tokenizer from Hugging Face
-2. Define prompt using LangChain’s PromptTemplate
-3. Pipe the prompt into the LLM using LCEL: prompt | llm
-4. Call chain.invoke() to generate a summary
-5. Output result to console or file
+1. Load MP3 file and transcribe to text using OpenAI Whisper
+2. Load LLaMA 3.2 model + tokenizer from Hugging Face
+3. Define prompt using LangChain’s PromptTemplate
+4. Pipe the prompt into the LLM using LCEL: prompt | llm
+5. Call chain.invoke() to generate summary
+6. Display output via console or Gradio interface
 
 ---
 
@@ -127,9 +129,16 @@ Folder Miscellaneous contains testing files for ffmpeg & Cuda.
 Understand and run appropriately.
 
 ```
+├── miscellaneous/
+    ├── cuda_testing.py
+    ├── ffmpeg-testing.py
+    └── whisper_transcription.py
+├── Test Audios/
+    ├── darkness.mp3
+    └── Download.mp3
 ├── llm_processes.py         # Model & prompt logic
 ├── main.py                  # CLI interface
-├── test_summary.py          # Example script
+├── speech_to_text.py          # Example script
 ├── requirements.txt
 └── README.md
 ```
@@ -143,6 +152,8 @@ Understand and run appropriately.
 - Streamlit UI
 - CSV/JSON export of summaries
 - RAG-based long memory for multi-meeting context
+- Image processing & Graph understanding
+- PDF generation with detailed timestamp processing
 
 ---
 
